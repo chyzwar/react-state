@@ -1,0 +1,34 @@
+{
+  "name": "@hyper/state",
+  "version": "0.2.0",
+  "description": "Redux drop in replecemnt",
+  "mode": "esm",
+  "sideEffects": false,
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+
+    "tslint": "tslint --project .",
+    "tslint:fix": "tslint --project . --fix",
+
+    "jest": "jest",
+    "jest:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "chyzwar",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@hyper/tslint-config": "0.x.x",
+    "@types/jest": "23.x.x",
+
+    "jest": "23.x.x",
+    "ts-jest": "23.x.x",
+    "tslint": "5.x.x",
+    "typescript": "3.x.x"
+  },
+  "peerDependencies": {
+    "react": "16.x.x"
+  }
+}
