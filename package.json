@@ -5,14 +5,14 @@
   "mode": "esm",
   "sideEffects": false,
   "scripts": {
-    "tsc": "tsc",
-    "tsc:watch": "tsc --watch",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
 
-    "tslint": "tslint --project .",
-    "tslint:fix": "tslint --project . --fix",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
 
-    "jest": "jest",
-    "jest:coverage": "jest --coverage"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "redux"

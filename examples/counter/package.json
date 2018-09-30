@@ -1,0 +1,28 @@
+{
+  "name": "@hyper/react-state-counter-example",
+  "version": "0.0.1",
+  "description": "React state counter example in browser example",
+  "scripts": {
+    "webpack-dev": "webpack-serve webpack.config.ts --require ts-node/register"
+  },
+  "author": "chyzwar",
+  "license": "UNLICENCED",
+  "dependencies": {
+    "@hyper/react-state": "0.x.x"
+  },
+  "devDependencies": {
+    "@types/html-webpack-plugin": "3.x.x",
+    "@types/node": "10.x.x",
+    "@types/webpack": "4.x.x",
+    "@types/webpack-dev-server": "3.x.x",
+    "@hyper/tslint-config": "0.x.x",
+
+    "ts-loader": "5.x.x",
+    "ts-node": "7.x.x",
+    "tslint": "5.x.x",
+    "typescript": "3.x.x",
+    "webpack": "4.x.x",
+    "webpack-dev-server": "3.x.x",
+    "html-webpack-plugin": "3.x.x"
+  }
+}

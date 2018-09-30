@@ -6,6 +6,14 @@ class Container<State extends Object = {}> {
   private state!: State;
   private listeners: Array<Listener<State>> = [];
 
+  public subscribe(listener: Listener<State>) {
+    this.listeners.push(listener);
+  }
+
+  public unsubscribe(listener: Listener<State>) {
+    this.listeners = this.listeners.filter((f: Listener<State>) => f !== listener);
+  }
+
   public async setState(update: Partial<State>, callback?: () => void): Promise<void> {
     const current = this.state;
 
@@ -24,14 +32,6 @@ class Container<State extends Object = {}> {
           return callback();
         }
       });
-  }
-
-  public subscribe(listener: Listener<State>) {
-    this.listeners.push(listener);
-  }
-
-  public unsubscribe(listener: Listener<State>) {
-    this.listeners = this.listeners.filter((f: Listener<State>) => f !== listener);
   }
 }
 

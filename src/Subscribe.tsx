@@ -1,23 +1,26 @@
 import React from "react";
 import StateContext from "./StateContext";
+import Container from "./Container";
+import Listener from "./Listener";
 
-export class Subscribe<Containers: ContainersType> extends React.Component<
-  SubscribeProps<Containers>,
-  SubscribeState
-> {
-  state = {};
-  instances: Array<ContainerType> = [];
-  unmounted = false;
+interface SubscribeProps<Containers extends Container[]> {
+  to: Containers;
+  children(...instances: Containers): React.ReactNode;
+}
 
-  componentWillUnmount() {
-    this.unmounted = true;
-    this._unsubscribe();
-  }
+export class Subscribe<Containers extends Container[]> extends React.PureComponent<SubscribeProps<Containers>> {
+  private instances: Containers = [];
+  private unmounted = false;
 
   private unsubscribe() {
-    this.instances.forEach(container => {
+    this.instances.forEach((container) => {
       container.unsubscribe(this.onUpdate);
     });
+  }
+
+  public componentDidUnmount() {
+    this.unmounted = true;
+    this.unsubscribe();
   }
 
   onUpdate: Listener = () => {
@@ -30,7 +33,7 @@ export class Subscribe<Containers: ContainersType> extends React.Component<
     });
   };
 
-  createInstances(
+  private createInstances(
     map: ContainerMapType | null,
     containers: ContainersType
   ): Array<ContainerType> {
@@ -76,10 +79,12 @@ export class Subscribe<Containers: ContainersType> extends React.Component<
         {(map) =>
           this.props.children.apply(
             null,
-            this._createInstances(map, this.props.to)
+            this.createInstances(map, this.props.to),
           )
         }
       </StateContext.Consumer>
     );
   }
 }
+
+export default Subscribe;

@@ -2,11 +2,8 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "esnext",
-    "rootDir": "src",
-    "outDir": "lib",
     "newLine": "lf",
 
     "experimentalDecorators": true,
@@ -25,20 +22,15 @@
     "noUnusedParameters": false,
     "forceConsistentCasingInFileNames": true,
 
+    "esModuleInterop": true,
     "removeComments": false,
     "preserveConstEnums": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "pretty": true,
-    "declaration": true,
-    "declarationMap": true,
+    "declaration": false,
     "listEmittedFiles": true
   },
-  "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.json"
-  ],
-  "exclude": [
-    "src/**/*.test.ts"
+  "files": [
+    "src/main.ts"
   ]
 }
