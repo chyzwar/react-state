@@ -36,7 +36,7 @@
   "include": [
     "src/**/*.js",
     "src/**/*.ts",
-    "src/**/*.json"
+    "src/**/*.json", "src/Subscribe.tsx"
   ],
   "exclude": [
     "src/**/*.test.ts"

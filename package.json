@@ -1,7 +1,7 @@
 {
-  "name": "@hyper/state",
+  "name": "@hyper/react-state",
   "version": "0.2.0",
-  "description": "Redux drop in replecemnt",
+  "description": "React state managment drop in replecemnt",
   "mode": "esm",
   "sideEffects": false,
   "scripts": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@hyper/tslint-config": "0.x.x",
     "@types/jest": "23.x.x",
+    "@types/react": "16.x.x",
 
     "jest": "23.x.x",
     "ts-jest": "23.x.x",

@@ -1,3 +1,5 @@
+/* tslint:disable:no-object-literal-type-assertion */
+
 import Listener from "./Listener";
 
 class Container<State extends Object = {}> {
@@ -5,7 +7,12 @@ class Container<State extends Object = {}> {
   private listeners: Array<Listener<State>> = [];
 
   public async setState(update: Partial<State>, callback?: () => void): Promise<void> {
-    this.state = Object.assign({}, this.state, update);
+    const current = this.state;
+
+    this.state = {
+      ...(current as {}),
+      ...(update as {}),
+    } as State;
 
     const promises = this.listeners
       .map((listener: Listener<State>) => listener(this.state));
