@@ -1,6 +1,11 @@
 import React from "react";
-import ProviderProps from "./ProviderProps";
+import Container from "./Container";
 import StateContext from "./StateContext";
+
+interface ProviderProps{
+  inject?: Container[];
+  children: React.ReactNode;
+}
 
 class Provider extends React.PureComponent<ProviderProps> {
   public render() {

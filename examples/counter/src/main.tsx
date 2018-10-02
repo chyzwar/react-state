@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 import Provider from "@hyper/react-state/lib/Provider";
 import Subscribe from "@hyper/react-state/lib/Subscribe";

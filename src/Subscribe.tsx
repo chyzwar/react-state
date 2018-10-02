@@ -2,14 +2,17 @@ import React from "react";
 import StateContext from "./StateContext";
 import Container from "./Container";
 import Listener from "./Listener";
+import ContainerType from "./ContainerType";
 
 interface SubscribeProps<Containers extends Container[]> {
-  to: Containers;
+  to: ContainerType[];
   children(...instances: Containers): React.ReactNode;
 }
 
-export class Subscribe<Containers extends Container[]> extends React.PureComponent<SubscribeProps<Containers>> {
-  private instances: Containers = [];
+type ContainerMap = Map<ContainerType, Container>;
+
+export class Subscribe<Containers extends ContainerType[]> extends React.PureComponent<SubscribeProps<Containers>> {
+  private instances: Container[] = [];
   private unmounted = false;
 
   private unsubscribe() {
@@ -19,69 +22,32 @@ export class Subscribe<Containers extends Container[]> extends React.PureCompone
   }
 
   public componentDidUnmount() {
-    this.unmounted = true;
     this.unsubscribe();
   }
 
-  onUpdate: Listener = () => {
-    return new Promise(resolve => {
-      if (!this.unmounted) {
-        this.setState(DUMMY_STATE, resolve);
+  private onUpdate() {
+    return new Promise((resolve) => {
+      if (this.unmounted === false) {
+        this.forceUpdate(resolve);
       } else {
         resolve();
       }
     });
-  };
-
-  private createInstances(
-    map: ContainerMapType | null,
-    containers: ContainersType
-  ): Array<ContainerType> {
-    this.unsubscribe();
-
-    if (map === null) {
-      throw new Error(
-        'You must wrap your <Subscribe> components with a <Provider>'
-      );
-    }
-
-    let safeMap = map;
-    let instances = containers.map(ContainerItem => {
-      let instance;
-
-      if (
-        typeof ContainerItem === 'object' &&
-        ContainerItem instanceof Container
-      ) {
-        instance = ContainerItem;
-      } else {
-        instance = safeMap.get(ContainerItem);
-
-        if (!instance) {
-          instance = new ContainerItem();
-          safeMap.set(ContainerItem, instance);
-        }
-      }
-
-      instance.unsubscribe(this.onUpdate);
-      instance.subscribe(this.onUpdate);
-
-      return instance;
-    });
-
-    this.instances = instances;
-    return instances;
   }
 
-  render() {
+  private createInstances(map: ContainerMap, containers: ContainerType[]): Containers {
+    if (map === null) {
+      throw new Error("You must wrap your <Subscribe> components with a <Provider>");
+    }
+
+    this.unsubscribe();
+
+  }
+
+  public render() {
     return (
       <StateContext.Consumer>
-        {(map) =>
-          this.props.children.apply(
-            null,
-            this.createInstances(map, this.props.to),
-          )
-        }
+        {(map) => this.props.children(...this.createInstances(map, this.props.to))}
       </StateContext.Consumer>
     );
   }
