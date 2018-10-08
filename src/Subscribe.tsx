@@ -1,17 +1,16 @@
 import React from "react";
 import StateContext from "./StateContext";
-import Container from "./Container";
-import Listener from "./Listener";
+import ContainerClass from "./ContainerClass";
 import ContainerType from "./ContainerType";
 
-interface SubscribeProps<Containers extends Container[]> {
+interface SubscribeProps {
   to: ContainerType[];
-  children(...instances: Containers): React.ReactNode;
+  children(...instances: ContainerClass[]): React.ReactNode;
 }
 
-type ContainerMap = Map<ContainerType, Container>;
+type ContainerMap = Map<ContainerType, ContainerClass>;
 
-export class Subscribe<Containers extends ContainerType[]> extends React.PureComponent<SubscribeProps<Containers>> {
+export class Subscribe extends React.PureComponent<SubscribeProps> {
   private instances: Container[] = [];
   private unmounted = false;
 
@@ -35,13 +34,25 @@ export class Subscribe<Containers extends ContainerType[]> extends React.PureCom
     });
   }
 
-  private createInstances(map: ContainerMap, containers: ContainerType[]): Containers {
+  private createInstances(map: ContainerMap, containers: ContainerType[]): ContainerClass[] {
     if (map === null) {
       throw new Error("You must wrap your <Subscribe> components with a <Provider>");
     }
 
     this.unsubscribe();
 
+    this.instances = containers.map((ContainerItem) => {
+      const instance = map.get(ContainerItem);
+
+      if (instance === undefined) {
+        const instance = new ContainerItem();
+
+        instance.unsubscribe(this.onUpdate);
+        instance.subscribe(this.onUpdate);
+      }
+    });
+
+    return this.instances;
   }
 
   public render() {

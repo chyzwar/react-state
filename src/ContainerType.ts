@@ -1,5 +1,5 @@
-import Container from "./Container";
+import ContainerClass from "./ContainerClass";
 
-type ContainerType = typeof Container;
+type ContainerType = typeof ContainerClass;
 
 export default ContainerType;

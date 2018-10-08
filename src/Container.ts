@@ -10,8 +10,7 @@ abstract class Container<State extends Object = {}> {
    * Subscribe to state changes
    */
   public subscribe(listener: Listener<State>) {
-    this.listeners
-      .push(listener);
+    this.listeners.push(listener);
   }
 
   /**
@@ -23,7 +22,7 @@ abstract class Container<State extends Object = {}> {
   }
 
   /**
-   * State is property implemented on subsclass
+   * state is property required on subsclass
    */
   protected abstract state: State;
 
