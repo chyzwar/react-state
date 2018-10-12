@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./Container";
 import StateContext from "./StateContext";
+import ContainerMap from "./ContainerMap";
 
 interface ProviderProps{
   inject?: Container[];

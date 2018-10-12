@@ -2,35 +2,21 @@ import React from "react";
 import StateContext from "./StateContext";
 import ContainerType from "./ContainerType";
 import Container from "./Container";
-
-interface SubscribeProps {
-  to: ContainerType[];
-  children(...instances: Container[]): React.ReactNode;
-}
-
-type ContainerMap = Map<ContainerType, Container>;
+import SubscribeProps from "./SubscribeProps";
+import ContainerMap from "./ContainerMap";
 
 export class Subscribe extends React.PureComponent<SubscribeProps> {
   private instances: Container[] = [];
-  private unmounted = false;
 
-  private unsubscribe() {
+  public componentWillUnmount() {
     this.instances.forEach((container) => {
-      container.unsubscribe(this.onUpdate);
+      container.unsubscribe(this.handleUpdate);
     });
   }
 
-  public componentDidUnmount() {
-    this.unsubscribe();
-  }
-
-  private onUpdate() {
+  private handleUpdate() {
     return new Promise((resolve) => {
-      if (this.unmounted === false) {
         this.forceUpdate(resolve);
-      } else {
-        resolve();
-      }
     });
   }
 
@@ -49,8 +35,7 @@ export class Subscribe extends React.PureComponent<SubscribeProps> {
         map.set(ContainerItem, instance);
       }
 
-    instance.unsubscribe(this.onUpdate);
-    instance.subscribe(this.onUpdate);
+    instance.subscribe(this.handleUpdate);
 
     return instance;
     });
@@ -61,7 +46,7 @@ export class Subscribe extends React.PureComponent<SubscribeProps> {
   public render() {
     return (
       <StateContext.Consumer>
-        {(map) => this.props.children(...this.createInstances(map, this.props.to))}
+        {(map: ContainerMap) => this.props.children(...this.createInstances(map, this.props.to))}
       </StateContext.Consumer>
     );
   }

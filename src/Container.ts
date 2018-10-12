@@ -10,7 +10,9 @@ abstract class Container<State extends Object = {}> {
    * Subscribe to state changes
    */
   public subscribe(listener: Listener) {
-    this.listeners.push(listener);
+    if (this.listeners.includes(listener) === false) {
+      this.listeners.push(listener);
+    }
   }
 
   /**
