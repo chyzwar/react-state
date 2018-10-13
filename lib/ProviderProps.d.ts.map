@@ -1,0 +1,1 @@
+{"version":3,"file":"ProviderProps.d.ts","sourceRoot":"","sources":["../src/ProviderProps.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,SAAS,MAAM,aAAa,CAAC;AAEpC,UAAU,aAAa;IACrB,MAAM,CAAC,EAAE,SAAS,EAAE,CAAC;IACrB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B;AAED,eAAe,aAAa,CAAC"}

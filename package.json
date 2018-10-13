@@ -19,6 +19,9 @@
   ],
   "author": "chyzwar",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@hyper/generic-types": "0.x.x"
+  },
   "devDependencies": {
     "@hyper/tslint-config": "0.x.x",
     "@types/jest": "23.x.x",

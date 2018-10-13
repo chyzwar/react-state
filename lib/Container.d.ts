@@ -7,15 +7,15 @@ declare abstract class Container<State extends Object = {}> {
     /**
      * Subscribe to state changes
      */
-    subscribe(listener: Listener<State>): void;
+    subscribe(listener: Listener): void;
     /**
      * Unsubscribe listener from state changes
      */
-    unsubscribe(listener: Listener<State>): void;
+    unsubscribe(listener: Listener): void;
     /**
      * state is property required on subsclass
      */
-    protected abstract state: State;
+    abstract state: State;
     /**
      * Change state of container, optional callback
      */

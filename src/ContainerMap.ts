@@ -1,6 +1,6 @@
 import Container from "./Container";
-import ContainerType from "./ContainerType";
+import Class from "@hyper/generic-types/lib/Class";
 
-type ContainerMap = Map<ContainerType, Container>;
+type ContainerMap = Map<Class<Container>, Container>;
 
 export default ContainerMap;

@@ -1,5 +1,6 @@
 /* tslint:disable:no-implicit-dependencies */
 
+import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
@@ -21,9 +22,19 @@ const config: webpack.Configuration = {
     /**
      * Application main entry point
      */
-    main: "./src/main.ts",
+    main: "./src/main.tsx",
   },
   resolve: {
+    /**
+     * Roots for module resolution
+     *
+     * @see https://webpack.js.org/configuration/resolve/#resolve-modules
+     */
+    modules: [
+      path.resolve("node_modules"),
+      path.resolve("../node_modules"),
+      path.resolve("../../node_modules"),
+    ],
     /**
      * An array of extensions that should be used to resolve modules.
      *
@@ -49,7 +60,7 @@ const config: webpack.Configuration = {
      * @see https://webpack.js.org/plugins/html-webpack-plugin/
      */
     new HtmlWebpackPlugin({
-      title: "Browser example Pop3Client",
+      title: "React state example",
       template: "src/index.html",
       filename: "index.html",
       minify: {

@@ -1,33 +1,39 @@
 import React from "react";
 import StateContext from "./StateContext";
-import ContainerType from "./ContainerType";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
 import ContainerMap from "./ContainerMap";
+import Class from "@hyper/generic-types/lib/Class";
 
-export class Subscribe extends React.PureComponent<SubscribeProps> {
+type ContainerTypes = Array<Class<Container>>>
+
+export class Subscribe<Containers extends ContainerTypes> extends React.PureComponent<SubscribeProps<Containers>> {
   private instances: Container[] = [];
 
+  /**
+   * Unsubscrobe from all containers before unmount
+   */
   public componentWillUnmount() {
     this.instances.forEach((container) => {
       container.unsubscribe(this.handleUpdate);
     });
   }
 
+  /**
+   * Forece re-render if state change in container
+   */
   private handleUpdate() {
     return new Promise((resolve) => {
         this.forceUpdate(resolve);
     });
   }
 
-  private createInstances(map: ContainerMap, containers: ContainerType[]): Container[] {
-    if (map === null) {
+  private createInstances(map: ContainerMap, containers: Containers): Container[] {
+    if (map.size === 0) {
       throw new Error("You must wrap your <Subscribe> components with a <Provider>");
     }
 
-    this.unsubscribe();
-
-    this.instances = containers.map((ContainerItem) => {
+    this.instances = containers.map((ContainerItem: Class<Container>) => {
     let instance = map.get(ContainerItem);
 
     if (instance === undefined) {

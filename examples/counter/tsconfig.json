@@ -5,6 +5,7 @@
     "module": "commonjs",
     "target": "esnext",
     "newLine": "lf",
+    "jsx": "react",
 
     "experimentalDecorators": true,
     "alwaysStrict": true,
@@ -29,8 +30,5 @@
     "pretty": true,
     "declaration": false,
     "listEmittedFiles": true
-  },
-  "files": [
-    "src/main.ts"
-  ]
+  }
 }

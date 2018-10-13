@@ -26,7 +26,7 @@ abstract class Container<State extends Object = {}> {
   /**
    * state is property required on subsclass
    */
-  protected abstract state: State;
+  public abstract state: State;
 
   /**
    * Change state of container, optional callback
