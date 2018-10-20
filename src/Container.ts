@@ -4,10 +4,10 @@ abstract class Container<State extends Object = {}> {
   /**
    * Array or listeners, used by Subscribe
    */
-  private listeners: Listener[] = [];
+  private listeners: Listener[] = new Set();
 
   /**
-   * Subscribe to state changes
+   * Add listener for state changes
    */
   public subscribe(listener: Listener) {
     if (this.listeners.includes(listener) === false) {

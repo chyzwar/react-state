@@ -5,7 +5,7 @@ declare abstract class Container<State extends Object = {}> {
      */
     private listeners;
     /**
-     * Add listener for state changes
+     * Subscribe to state changes
      */
     subscribe(listener: Listener): void;
     /**

@@ -1,8 +1,9 @@
 import React from "react";
-import Constr from "@hyper/generic-types/lib/Constructor";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
-declare class Subscribe<Containers extends Array<Constr<Container>>> extends React.PureComponent<SubscribeProps<Containers>> {
+import Class from "@hyper/generic-types/lib/Class";
+declare type ContainerTypes = Array<Class<Container>>;
+export declare class Subscribe<Containers extends ContainerTypes> extends React.PureComponent<SubscribeProps<Containers>> {
     private instances;
     /**
      * Unsubscrobe from all containers before unmount

@@ -1,13 +1,12 @@
 import React from "react";
+import Constructor from "@hyper/generic-types/lib/Constructor";
 import StateContext from "./StateContext";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
 import ContainerMap from "./ContainerMap";
-import Class from "@hyper/generic-types/lib/Class";
 
-type ContainerTypes = Array<Class<Container>>>
+class Subscribe<Containers extends Array<Constructor<Container>>> extends React.PureComponent<SubscribeProps<Containers>>{
 
-export class Subscribe<Containers extends ContainerTypes> extends React.PureComponent<SubscribeProps<Containers>> {
   private instances: Container[] = [];
 
   /**
@@ -29,11 +28,7 @@ export class Subscribe<Containers extends ContainerTypes> extends React.PureComp
   }
 
   private createInstances(map: ContainerMap, containers: Containers): Container[] {
-    if (map.size === 0) {
-      throw new Error("You must wrap your <Subscribe> components with a <Provider>");
-    }
-
-    this.instances = containers.map((ContainerItem: Class<Container>) => {
+    this.instances = containers.map((ContainerItem) => {
     let instance = map.get(ContainerItem);
 
     if (instance === undefined) {

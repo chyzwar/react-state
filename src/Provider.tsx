@@ -1,14 +1,13 @@
 import React from "react";
 import StateContext from "./StateContext";
 import ProviderProps from "./ProviderProps";
-import ContainerMap from "./ContainerMap";
 
 class Provider extends React.PureComponent<ProviderProps> {
   public render() {
     return (
       <StateContext.Consumer>
         {(parentMap) => {
-          const childMap: ContainerMap = new Map(parentMap);
+          const childMap = new Map(parentMap);
 
           if (this.props.inject) {
             this.props.inject.forEach((instance) => {
