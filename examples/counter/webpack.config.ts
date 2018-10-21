@@ -34,6 +34,7 @@ const config: webpack.Configuration = {
       path.resolve("node_modules"),
       path.resolve("../node_modules"),
       path.resolve("../../node_modules"),
+      path.resolve("../../../../node_modules"),
     ],
     /**
      * An array of extensions that should be used to resolve modules.

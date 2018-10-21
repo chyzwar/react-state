@@ -4,7 +4,7 @@ abstract class Container<State extends Object = {}> {
   /**
    * Array or listeners, used by Subscribe
    */
-  private listeners: Listener[] = new Set();
+  private listeners: Listener[] = [];
 
   /**
    * Add listener for state changes

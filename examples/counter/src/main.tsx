@@ -23,7 +23,7 @@ class CounterContainer extends Container<CounterState> {
 
 function Counter() {
   return (
-    <Subscribe<[CounterContainer]> to={[CounterContainer]}>
+    <Subscribe to={[CounterContainer]}>
       {(counter: CounterContainer) => (
         <div>
           <button onClick={() => counter.decrement()}>-</button>

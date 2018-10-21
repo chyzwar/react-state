@@ -1,7 +1,7 @@
 import React from "react";
+import Constructor from "@hyper/generic-types/lib/Constructor";
 import Container from "./Container";
-import ContainerType from "./ContainerType";
-interface SubscribeProps<Containers extends ContainerType[]> {
+interface SubscribeProps<Containers extends Array<Constructor<Container>>> {
     to: Containers;
     children(...instances: Container[]): React.ReactNode;
 }
