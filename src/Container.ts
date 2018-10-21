@@ -24,7 +24,7 @@ abstract class Container<State extends Object = {}> {
   }
 
   /**
-   * state is property required on subsclass
+   * State is property required on subsclass
    */
   public abstract state: State;
 
