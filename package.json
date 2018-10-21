@@ -1,6 +1,10 @@
 {
   "name": "@hyper/react-state",
   "version": "0.2.0",
+  "engines": {
+    "node": "11.x.x",
+    "npm": "6.x.x"
+  },
   "description": "React state managment drop in replecemnt",
   "mode": "esm",
   "sideEffects": false,
