@@ -13,7 +13,7 @@ declare abstract class Container<State extends Object = {}> {
      */
     unsubscribe(listener: Listener): void;
     /**
-     * state is property required on subsclass
+     * State is property required on subsclass
      */
     abstract state: State;
     /**
