@@ -3,9 +3,13 @@ import Constructor from "@hyper/generic-types/lib/Constructor";
 import StateContext from "./StateContext";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
-import ContainerMap from "./ContainerMap";
 
 class Subscribe<Containers extends Array<Constructor<Container>>> extends React.PureComponent<SubscribeProps<Containers>>{
+  /**
+   * Use StateContext as context
+   */
+  public static contextType = StateContext;
+
   /**
    * Container instances that are subscribed
    */
@@ -32,14 +36,14 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
   /**
    *
    */
-  private createInstances(map: ContainerMap, containers: Containers): Container[] {
+  private createInstances(containers: Containers): Container[] {
     return this.instances = containers.map(
       (ContainerItem) => {
-        let instance = map.get(ContainerItem);
+        let instance = this.context.get(ContainerItem);
 
         if (instance === undefined) {
           instance = new ContainerItem();
-          map.set(ContainerItem, instance);
+          this.context.set(ContainerItem, instance);
         }
 
         instance.subscribe(this.handleUpdate);
@@ -53,9 +57,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
    */
   public render() {
     return (
-      <StateContext.Consumer>
-        {(map: ContainerMap) => this.props.children(...this.createInstances(map, this.props.to))}
-      </StateContext.Consumer>
+      this.props.children(...this.createInstances(this.props.to))
     );
   }
 }
