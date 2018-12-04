@@ -1,41 +1,6 @@
-
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "esnext",
-    "target": "esnext",
-    "rootDir": "src",
-    "outDir": "lib",
-    "newLine": "lf",
-    "jsx": "react",
-
-    "experimentalDecorators": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "strict": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "noImplicitAny": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "forceConsistentCasingInFileNames": true,
-
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "sourceMap": false,
-    "pretty": true,
-    "declaration": true,
-    "declarationMap": true,
-    "listEmittedFiles": true
-  },
+  "extends": "@hyper/tsc-config",
   "include": [
-    "src/**/*.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.json"
