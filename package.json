@@ -9,8 +9,8 @@
   "mode": "esm",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
+    "build": "tsc --outDir lib",
+    "build:watch": "tsc --watch --outDir lib",
 
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",
