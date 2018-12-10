@@ -1,5 +1,5 @@
 {
-  "extends": "@hyper/tsc-config",
+  "extends": "@hyper/tsc-config/library.json",
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
