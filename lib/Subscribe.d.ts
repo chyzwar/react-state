@@ -3,6 +3,9 @@ import Constructor from "@hyper/generic-types/lib/Constructor";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
 declare class Subscribe<Containers extends Array<Constructor<Container>>> extends React.PureComponent<SubscribeProps<Containers>> {
+    /**
+     * Use StateContext as context
+     */
     static contextType: React.Context<Map<import("@hyper/generic-types/lib/Class").default<Container<{}>>, Container<{}>>>;
     /**
      * Container instances that are subscribed
