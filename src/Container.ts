@@ -2,25 +2,22 @@ import Listener from "./Listener";
 
 abstract class Container<State extends Object = {}> {
   /**
-   * Array or listeners, used by Subscribe
+   * Set or listeners, used by Subscribe
    */
-  private listeners: Listener[] = [];
+  private listeners: Set<Listener> = new Set();
 
   /**
    * Add listener for state changes
    */
   public subscribe(listener: Listener) {
-    if (this.listeners.includes(listener) === false) {
-      this.listeners.push(listener);
-    }
+    this.listeners.add(listener);
   }
 
   /**
    * Unsubscribe listener from state changes
    */
   public unsubscribe(listener: Listener) {
-    this.listeners = this.listeners
-      .filter((l: Listener) => l !== listener);
+    this.listeners.delete(listener);
   }
 
   /**
@@ -35,20 +32,18 @@ abstract class Container<State extends Object = {}> {
     const current = this.state;
 
     this.state = {
-      ...(current as {}),
-      ...(update as {}),
-    } as State;
+      ...current,
+      ...update,
+    };
 
-    const promises = this.listeners
-      .map((listener: Listener) => listener());
-
-    return Promise
-      .all(promises)
-      .then(() => {
-        if (callback) {
-          return callback();
-        }
-      });
+    const promises: Promise<{}>[] = Array
+      .from(this.listeners, (listener) => listener());
+      
+    if (callback) {  
+      return Promise
+        .all(promises)
+        .then(callback);
+    }
   }
 }
 
