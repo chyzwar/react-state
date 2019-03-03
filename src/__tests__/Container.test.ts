@@ -14,7 +14,7 @@ describe("Container", () => {
     const listener = jest.fn();
 
     container.subscribe(listener);
-    container.setState({test: 10});
+    container.setState({test: 1});
 
     expect(listener).toHaveBeenCalled();
   });
