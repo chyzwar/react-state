@@ -29,7 +29,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
    * Force re-render if state changed in container.
    * Promise is needed to track if all subscribers updated.
    */
-  private handleUpdate = () => new Promise((resolve) => {
+  private readonly handleUpdate = () => new Promise((resolve) => {
     this.forceUpdate(resolve);
   })
 

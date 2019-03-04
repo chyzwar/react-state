@@ -4,7 +4,7 @@ abstract class Container<State extends Object = {}> {
   /**
    * Set or listeners, used by Subscribe
    */
-  private listeners: Set<Listener> = new Set();
+  private readonly listeners: Set<Listener> = new Set();
 
   /**
    * Add listener for state changes
@@ -36,10 +36,10 @@ abstract class Container<State extends Object = {}> {
       ...update,
     };
 
-    const promises: Promise<{}>[] = Array
+    const promises: Array<Promise<{}>> = Array
       .from(this.listeners, (listener) => listener());
-      
-    if (callback) {  
+
+    if (callback) {
       return Promise
         .all(promises)
         .then(callback);
