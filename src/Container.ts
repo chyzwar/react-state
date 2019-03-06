@@ -36,7 +36,7 @@ abstract class Container<State extends Object = {}> {
       ...update,
     };
 
-    const promises: Array<Promise<{}>> = Array
+    const promises: Array<Promise<void>> = Array
       .from(this.listeners, (listener) => listener());
 
     if (callback) {

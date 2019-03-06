@@ -1,4 +1,4 @@
 
-type Listener = () => Promise<{}>;
+type Listener = () => Promise<void>;
 
 export default Listener;

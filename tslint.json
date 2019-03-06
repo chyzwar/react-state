@@ -3,6 +3,7 @@
     "@hyper/tslint-config"
   ],
   "rules": {
-    "no-object-literal-type-assertion": [false]
+    "no-object-literal-type-assertion": [false],
+    "no-inferred-empty-object-type": [false]
   }
 }
