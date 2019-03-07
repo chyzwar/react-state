@@ -2,8 +2,8 @@ import Container from "../Container";
 
 describe("Container", () => {
   type TestState = {
-    test: number
-  } 
+    test: number;
+  };
 
   class TestContainer extends Container<TestState>{
     public state = { test: 0 };
@@ -14,8 +14,10 @@ describe("Container", () => {
     const listener = jest.fn();
 
     container.subscribe(listener);
-    container.setState({test: 1});
+    container.setState({
+      test: 1,
+    });
 
     expect(listener).toHaveBeenCalled();
   });
-})
+});
