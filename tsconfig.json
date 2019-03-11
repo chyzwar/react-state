@@ -1,11 +1,48 @@
 {
-  "extends": "@hyper/tsc-config/library.json",
+  "compileOnSave": true,
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es2018",
+    "newLine": "lf",
+    "jsx": "react",
+    "outDir": "lib",
+    "rootDir": "src",
+    "lib": ["dom"],
+
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "pretty": true,
+    "declaration": true,
+    "declarationMap": true,
+    "listEmittedFiles": true,
+    "composite": true
+  },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.json"
   ],
   "exclude": [
     "src/**/*.test.ts"
+  ],
+  "references": [
+    {"path": "../generic-types"}
   ]
 }
