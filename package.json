@@ -5,12 +5,11 @@
     "node": "11.x.x",
     "npm": "6.x.x"
   },
-  "description": "React state managment drop in replecemnt",
-  "mode": "esm",
+  "description": "React state managment",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc --outDir lib",
-    "build:watch": "tsc --watch --outDir lib",
+    "build": "tsc --build",
+    "build:watch": "tsc --watch --build",
 
     "lint": "tslint --project .",
     "lint:fix": "tslint --project . --fix",

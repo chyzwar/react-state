@@ -27,6 +27,7 @@
     "forceConsistentCasingInFileNames": true,
 
     "removeComments": false,
+    "listFiles": true,
     "preserveConstEnums": true,
     "sourceMap": false,
     "pretty": true,
@@ -37,6 +38,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.tsx",
     "src/**/*.json"
   ],
   "exclude": [
