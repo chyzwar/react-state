@@ -7,8 +7,10 @@
     "jsx": "react",
     "outDir": "lib",
     "rootDir": "src",
+    "tsBuildInfoFile": "./lib/.build",
     "lib": ["dom"],
 
+    "incremental": true,
     "experimentalDecorators": true,
     "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,
