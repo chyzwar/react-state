@@ -2,7 +2,7 @@
   "name": "@hyper/react-state",
   "version": "0.2.0",
   "engines": {
-    "node": "11.x.x",
+    "node": "12.x.x",
     "npm": "6.x.x"
   },
   "type": "module",
