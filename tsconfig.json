@@ -7,8 +7,7 @@
     "jsx": "react",
     "outDir": "lib",
     "rootDir": "src",
-    "tsBuildInfoFile": "./lib/.build",
-    "lib": ["dom"],
+    "tsBuildInfoFile": "./lib/buildInfo.json",
 
     "incremental": true,
     "experimentalDecorators": true,
@@ -36,7 +35,8 @@
     "declaration": true,
     "declarationMap": true,
     "listEmittedFiles": true,
-    "composite": true
+    "composite": true,
+    "types": []
   },
   "include": [
     "src/**/*.ts",
