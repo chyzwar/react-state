@@ -36,7 +36,7 @@
     "declarationMap": true,
     "listEmittedFiles": true,
     "composite": true,
-    "types": []
+    "types": ["jest"]
   },
   "include": [
     "src/**/*.ts",
