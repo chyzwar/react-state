@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "es2018",
+    "target": "es2019",
     "newLine": "lf",
     "jsx": "react",
     "outDir": "lib",
