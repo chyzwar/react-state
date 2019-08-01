@@ -34,7 +34,7 @@
     "pretty": true,
     "declaration": true,
     "declarationMap": true,
-    "listEmittedFiles": true,
+    "listEmittedFiles": false,
     "composite": true,
     "types": ["jest"]
   },
