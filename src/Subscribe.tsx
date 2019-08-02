@@ -12,7 +12,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
   private instances: Container[] = [];
 
   /**
-   * Unsubscrobe from all containers before unmount
+   * Unsubscribe from all containers before unmount
    * Assume that handle update will not race with unmount.
    */
   public componentWillUnmount() {
@@ -37,7 +37,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
       (ContainerItem) => {
         let instance = map.get(ContainerItem);
 
-        if (instance === undefined) {
+        if (!instance) {
 
           instance = new ContainerItem();
           map.set(ContainerItem, instance);
