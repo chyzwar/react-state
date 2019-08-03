@@ -28,7 +28,6 @@
     "forceConsistentCasingInFileNames": true,
 
     "removeComments": false,
-    "listFiles": true,
     "preserveConstEnums": true,
     "sourceMap": false,
     "pretty": true,
