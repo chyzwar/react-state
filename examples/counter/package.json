@@ -6,7 +6,7 @@
     "start": "webpack-dev-server"
   },
   "author": "chyzwar",
-  "license": "UNLICENCED",
+  "license": "UNLICENSED",
   "dependencies": {
     "@hyper/react-state": "0.x.x",
     "react": "16.x.x",
