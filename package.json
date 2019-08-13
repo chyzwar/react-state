@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "engines": {
     "node": "12.x.x",
-    "npm": "6.x.x"
+    "yarn": "1.x.x"
   },
   "type": "module",
   "description": "React state managment",
