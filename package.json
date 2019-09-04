@@ -6,6 +6,9 @@
     "yarn": "1.x.x"
   },
   "type": "module",
+  "exports": {
+    "./": "./lib/"
+  },
   "description": "React state managment",
   "sideEffects": false,
   "scripts": {
