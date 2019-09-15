@@ -11,6 +11,7 @@
     "tsBuildInfoFile": "./lib/buildInfo.json",
     "incremental": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
   
     "allowUnreachableCode": false,
     "strict": true,
