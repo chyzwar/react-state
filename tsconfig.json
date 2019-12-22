@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
     "moduleResolution": "node",
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "es2019",
     "newLine": "lf",
     "jsx": "react",

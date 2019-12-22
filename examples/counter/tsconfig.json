@@ -2,7 +2,7 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "esnext",
     "newLine": "lf",
     "jsx": "react",

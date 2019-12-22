@@ -9,7 +9,7 @@ abstract class Container<State extends Object = {}> {
   /**
    * Add listener for state changes
    */
-  public subscribe(listener: Listener) {
+  public subscribe(listener: Listener): void {
     this.listeners.add(listener);
   }
 
