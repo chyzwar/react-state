@@ -1,4 +1,7 @@
 
 module.exports = {
-  "extends": "@hyper/eslint-config/node"
+  extends: "@hyper/eslint-config/node",
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+  },
 }
