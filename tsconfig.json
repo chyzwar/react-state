@@ -3,7 +3,7 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "module": "CommonJS",
-    "target": "es2019",
+    "target": "ES2020",
     "newLine": "lf",
     "jsx": "react",
     "outDir": "lib",
