@@ -15,13 +15,13 @@
   "devDependencies": {
     "@types/html-webpack-plugin": "3.x.x",
     "@types/webpack": "4.x.x",
-    "@hyper/tslint-config": "0.x.x",
+    "@hyper/eslint-config": "0.x.x",
     "@hyper/tsc-config": "0.x.x",
     "@types/react": "16.x.x",
     "@types/react-dom": "16.x.x",
 
     "ts-loader": "6.x.x",
-    "tslint": "5.x.x",
+    "eslint": "6.x.x",
     "typescript": "3.x.x",
     "webpack": "4.x.x",
     "webpack-dev-server": "3.x.x",
