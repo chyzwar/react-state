@@ -1,5 +1,3 @@
-/* tslint:disable:no-implicit-dependencies */
-
 import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
