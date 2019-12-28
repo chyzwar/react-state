@@ -5,6 +5,9 @@
     "src/**/*.tsx",
     "src/**/*.json"
   ],
+  "exclude": [
+    "src/**/*.test.ts"
+  ],
   "references": [
     {"path": "../generic-types/tsconfig.build.json"}
   ]
