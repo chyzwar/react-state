@@ -1,11 +1,10 @@
 import React from "react";
 import Constructor from "@hyper/generic-types/lib/Constructor";
-import StateContext from "./StateContext";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
 import ContainerMap from "./ContainerMap";
 
-class Subscribe<Containers extends Array<Constructor<Container>>> extends React.PureComponent<SubscribeProps<Containers>>{
+class Subscribe<Containers extends Constructor<Container>[]> extends React.PureComponent<SubscribeProps<Containers>> {
   /**
    * Container instances that are subscribed
    */
@@ -15,7 +14,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
    * Unsubscribe from all containers before unmount
    * Assume that handle update will not race with unmount.
    */
-  public componentWillUnmount() {
+  public componentWillUnmount(): void {
     this.instances.forEach((container) => {
       container.unsubscribe(this.handleUpdate);
     });
@@ -27,7 +26,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
    */
   private readonly handleUpdate = () => new Promise<void>((resolve) => {
     this.forceUpdate(resolve);
-  })
+  });
 
   /**
    *
@@ -46,7 +45,7 @@ class Subscribe<Containers extends Array<Constructor<Container>>> extends React.
         instance.subscribe(this.handleUpdate);
 
         return instance;
-    });
+      });
   }
 
   /**

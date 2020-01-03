@@ -5,7 +5,7 @@ describe("Container", () => {
     test: number;
   };
 
-  class TestContainer extends Container<TestState>{
+  class TestContainer extends Container<TestState> {
     public state = { test: 0 };
   }
 

@@ -1,6 +1,6 @@
 import Listener from "./Listener";
 
-abstract class Container<State extends Object = {}> {
+abstract class Container<State extends Record<string, unknown> = {}> {
   /**
    * Set or listeners, used by Subscribe
    */
@@ -36,7 +36,7 @@ abstract class Container<State extends Object = {}> {
       ...update,
     };
 
-    const promises: Array<Promise<void>> = Array
+    const promises: Promise<void>[] = Array
       .from(this.listeners, (listener) => listener());
 
     if (callback) {
