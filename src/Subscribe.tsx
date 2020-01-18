@@ -3,6 +3,7 @@ import Constructor from "@hyper/generic-types/lib/Constructor";
 import Container from "./Container";
 import SubscribeProps from "./SubscribeProps";
 import ContainerMap from "./ContainerMap";
+import StateContext from "./StateContext";
 
 class Subscribe<Containers extends Constructor<Container>[]> extends React.PureComponent<SubscribeProps<Containers>> {
   /**
