@@ -8,7 +8,7 @@ const config: webpack.Configuration = {
    */
   mode: "development",
   /**
-   * Recommeded devtool for ts-loader
+   * Recommended devtool for ts-loader
    */
   devtool: "inline-source-map",
   /**
