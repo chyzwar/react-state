@@ -35,8 +35,8 @@
     "@types/jest": "24.x.x",
     "@types/react": "16.x.x",
 
-    "jest": "24.x.x",
-    "ts-jest": "24.x.x",
+    "jest": "25.x.x",
+    "ts-jest": "25.x.x",
     "eslint": "6.x.x",
     "typescript": "3.x.x"
   },
